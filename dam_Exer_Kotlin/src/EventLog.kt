@@ -21,4 +21,8 @@ sealed class Event {
 
         return total
     }
+
+    fun processEvents(events: List<Event>, handler: (Event) -> Unit){
+        events.forEach { handler(it) }
+    }
 }
