@@ -13,4 +13,12 @@ sealed class Event {
         }
         return eventsByUser
     }
+
+    fun List<Event>.totalSpent(username: String): Double {
+        val total = filterIsInstance<Event.Purchase>()
+                    .filter {it.username == username}
+                    .sumOf { it.amount }
+
+        return total
+    }
 }
