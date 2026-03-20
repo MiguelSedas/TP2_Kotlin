@@ -25,7 +25,7 @@ fun main() {
     println("After evict id 1, size: ${idCache.size()}")
     println("Id 1 after evict -> ${idCache.get(1)}")
     println("--- Challenge ---")
-    val result = wordCache.filterValues { it == 1 }
+    val result = wordCache.filterValues { it > 0 }
     println(result)
 
 
