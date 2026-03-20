@@ -48,4 +48,13 @@ fun main() {
             is Logout -> println("[LOGOUT]  ${it.username} logged out at t=${it.timestamp}")
         }
     }
+
+    println("Total spent by alice: $${events.totalSpent("alice")}")
+
+    println("Total spent by bob: $${events.totalSpent("bob")}")
+
+    println("Events for alice:")
+    for (event in events.filterByUser("alice")) {
+        println(event)
+    }
 }
