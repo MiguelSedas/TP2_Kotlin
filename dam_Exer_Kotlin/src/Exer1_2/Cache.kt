@@ -63,4 +63,13 @@ class Cache<K : Any, V : Any> {
         return map.toMap()
     }
 
+    /**
+     * Função que recebe uma condição sobre o valor e retorna um map imutável
+     * Return: map<K, V> imutável
+     */
+    fun filterValues(predicate: (V) -> Boolean): Map<K, V> {
+        val values = map.filterValues { predicate(it) }
+        return values.toMap()
+    }
+
 }

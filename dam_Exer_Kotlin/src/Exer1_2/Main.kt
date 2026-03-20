@@ -4,7 +4,7 @@ fun main() {
     val wordCache = Cache<String, Int>()
     wordCache.put("kotlin", 1)
     wordCache.put("scala", 1)
-    wordCache.put("haskell", 1)
+    wordCache.put("python", 1)
 
     val idCache = Cache<Int, String>()
     idCache.put(1, "Alice")
@@ -24,6 +24,9 @@ fun main() {
     idCache.evict(1)
     println("After evict id 1, size: ${idCache.size()}")
     println("Id 1 after evict -> ${idCache.get(1)}")
+    println("--- Challenge ---")
+    val result = wordCache.filterValues { it == 1 }
+    println(result)
 
 
 }
