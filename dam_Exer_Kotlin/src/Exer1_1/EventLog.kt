@@ -1,6 +1,8 @@
-import Event.Login
-import Event.Logout
-import Event.Purchase
+package Exer1_1
+
+import Exer1_1.Event.Login
+import Exer1_1.Event.Logout
+import Exer1_1.Event.Purchase
 
 sealed class Event {
     data class Login(val username: String, val timestamp: Long) : Event()
@@ -10,16 +12,16 @@ sealed class Event {
     fun List<Event>.filterByUser(username: String): List<Event> {
         val eventsByUser = filter { it ->
             when (it) {
-                is Event.Login    -> it.username == username
-                is Event.Purchase -> it.username == username
-                is Event.Logout   -> it.username == username
+                is Login    -> it.username == username
+                is Purchase -> it.username == username
+                is Logout   -> it.username == username
             }
         }
         return eventsByUser
     }
 
     fun List<Event>.totalSpent(username: String): Double {
-        val total = filterIsInstance<Event.Purchase>()
+        val total = filterIsInstance<Purchase>()
                     .filter {it.username == username}
                     .sumOf { it.amount }
 
@@ -32,13 +34,13 @@ sealed class Event {
 
 fun main() {
     val events = listOf(
-        Event.Login("alice", 1_000),
-        Event.Purchase("alice", 49.99, 1_100),
-        Event.Purchase("bob", 19.99, 1_200),
-        Event.Login("bob", 1_050),
-        Event.Purchase("alice", 15.00, 1_300),
-        Event.Logout("alice", 1_400),
-        Event.Logout("bob", 1_500)
+        Login("alice", 1_000),
+        Purchase("alice", 49.99, 1_100),
+        Purchase("bob", 19.99, 1_200),
+        Login("bob", 1_050),
+        Purchase("alice", 15.00, 1_300),
+        Logout("alice", 1_400),
+        Logout("bob", 1_500)
     )
 
     processEvents(events) {
