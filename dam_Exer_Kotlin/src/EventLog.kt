@@ -49,9 +49,9 @@ fun main() {
         }
     }
 
-    println("Total spent by alice: $${events.totalSpent("alice")}")
+    println("Total spent by alice: $${"%.2f".format(events.totalSpent("alice"))}")
 
-    println("Total spent by bob: $${events.totalSpent("bob")}")
+    println("Total spent by bob: $${"%.2f".format(events.totalSpent("bob"))}")
 
     println("Events for alice:")
     for (event in events.filterByUser("alice")) {
