@@ -23,4 +23,12 @@ class Cache<K : Any, V : Any> {
         return map.getOrPut(key, defaultValue)
     }
 
+    fun transform(key: K, action: (V) -> V): Boolean {
+        if (map.containsKey(key)) {
+            map[key] = action(map[key]!!)
+            return true
+        }
+        return false
+    }
+
 }
