@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d79980f3-1b7f-432e-aa34-be3b8b8683a8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Exer1_2/Cache.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -56,6 +57,11 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="K2MoveDeclarationsDialog.RECENT_PACKAGE_KEY">
+      <recent name="Exer1_1" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -73,7 +79,7 @@
       <option name="presentableId" value="Default" />
       <updated>1773937229571</updated>
       <workItem from="1773937230622" duration="4787000" />
-      <workItem from="1773995338708" duration="3193000" />
+      <workItem from="1773995338708" duration="3803000" />
     </task>
     <servers />
   </component>
