@@ -19,4 +19,8 @@ class Cache<K : Any, V : Any> {
         return map.size
     }
 
+    fun getOrPut(key: K, defaultValue: () -> V): V{
+        return map.getOrPut(key, defaultValue)
+    }
+
 }
