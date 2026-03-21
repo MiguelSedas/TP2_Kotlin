@@ -32,7 +32,7 @@ class Pipeline{
      */
     fun describe(){
         stages.forEachIndexed { index, stage ->
-            println("${index+1} ${stage.first}")}
+            println("${index+1}. ${stage.first}")}
     }
 }
 

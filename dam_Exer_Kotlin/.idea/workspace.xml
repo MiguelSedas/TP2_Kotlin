@@ -79,6 +79,7 @@
     <configuration name="MainKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Exer1_2.MainKt" />
       <module name="dam_Exer_Kotlin" />
+      <shortenClasspath name="NONE" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -108,7 +109,7 @@
       <workItem from="1773937230622" duration="4787000" />
       <workItem from="1773995338708" duration="4130000" />
       <workItem from="1774029535617" duration="5779000" />
-      <workItem from="1774087205189" duration="6868000" />
+      <workItem from="1774087205189" duration="7466000" />
     </task>
     <servers />
   </component>
