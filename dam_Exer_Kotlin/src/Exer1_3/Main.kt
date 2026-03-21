@@ -11,7 +11,7 @@ fun main(){
         " ERROR : connection timeout "
     )
 
-    val trim = buildPipeline {
+    val pipeline = buildPipeline {
         /**
          * Pipeline para remover espaços antes e no fim da linha
          */
@@ -39,10 +39,25 @@ fun main(){
     }
 
     println("Pipeline stages: ")
-    trim.describe()
+    pipeline.describe()
     println("Result: ")
-    val trimResult = trim.execute(logs)
+    val trimResult = pipeline.execute(logs)
     for (log in trimResult){
         println(log)
     }
+
+    // Testar compose
+    pipeline.compose("Trim", "FilterErrors", "TrimAndFilter")
+    println("Composed stage result:")
+    pipeline.execute(logs).forEach { println(it) }
+
+    // Testar fork
+    val pipeline2 = buildPipeline {
+        addStage("Uppercase") { list -> list.map { it.uppercase() } }
+    }
+    val (result1, result2) = pipeline.fork(logs, pipeline2)
+    println("Fork result 1:")
+    result1.forEach { println(it) }
+    println("Fork result 2:")
+    result2.forEach { println(it) }
 }

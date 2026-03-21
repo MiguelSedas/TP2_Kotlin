@@ -34,6 +34,34 @@ class Pipeline{
         stages.forEachIndexed { index, stage ->
             println("${index+1}. ${stage.first}")}
     }
+
+    /**
+     * Função que dados dois nomes de etapas já existentes no pipeline,
+     * é criado uma etapa que aplica as duas em sequência.
+     * Parametro: firstName, secondName, newName - String
+     */
+    fun compose(firstName: String, secondName: String, newName: String){
+        val f = stages.find { it.first == firstName }?.second
+        val g = stages.find { it.first == secondName }?.second
+
+        if (f != null && g != null){
+            val h: (List<String>) -> List<String> = { input -> g(f(input)) }
+            stages.add(newName to h)
+        }
+    }
+
+    /**
+     * Função que dados dois pipelines, corre-se o mesmo input em ambos e é devolvido os dois resultados num Pair.
+     * Parametro: input - List<String>
+     * Paramtro: Other - Pipeline
+     * Return: Pair<List<String>, List<String>>
+     */
+    fun fork(input: List<String>, other: Pipeline): Pair<List<String>, List<String>>{
+        val resultado1 = execute(input)
+        val resultado2 = other.execute(input)
+
+        return Pair(resultado1, resultado2)
+    }
 }
 
 /**
