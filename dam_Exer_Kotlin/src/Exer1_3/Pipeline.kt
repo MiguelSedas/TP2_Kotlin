@@ -41,7 +41,7 @@ class Pipeline{
  * Parametro: Block - uma lambda com receiver
  * Return: Pipeline - retorna um pipeline com o block aplicado
  */
-fun build_pipeline(block :Pipeline.() -> Unit): Pipeline {
+fun buildPipeline(block :Pipeline.() -> Unit): Pipeline {
     val pipeline = Pipeline()
     pipeline.block()
     return pipeline
