@@ -10,7 +10,7 @@ class Pipeline{
     /**
      * Adiciona um nome a um pipeline
      * @param name String para descrever o pipeline
-     * @param Transform função lambda que recebe uma list e retorna o mesmo tipo
+     * @param transform função lambda que recebe uma list e retorna o mesmo tipo
      */
     fun addStage(name : String, transform: (List<String>) -> List<String>) {
         stages.add(name to transform)
@@ -56,7 +56,7 @@ class Pipeline{
     /**
      * Dados dois pipelines, corre o mesmo input em ambos e é devolvido os dois resultados num Pair.
      * @param input List<String>
-     * @param Other Pipeline
+     * @param other Pipeline
      * @return Pair<List<String>, List<String>>
      */
     fun fork(input: List<String>, other: Pipeline): Pair<List<String>, List<String>>{
@@ -69,7 +69,7 @@ class Pipeline{
 
 /**
  * Função que cria um pipeline e aplica um block
- * @param Block função lambda com receiver
+ * @param block função lambda com receiver
  * @return Pipeline - retorna um pipeline com o block aplicado
  */
 fun buildPipeline(block :Pipeline.() -> Unit): Pipeline {
